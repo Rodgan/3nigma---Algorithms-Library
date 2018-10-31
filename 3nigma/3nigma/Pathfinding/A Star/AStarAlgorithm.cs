@@ -7,6 +7,14 @@ namespace Enigma.Pathfinding.A_Star
 {
     public class AStarAlgorithm
     {
+        // #####################################################################
+        //                   A Star - Pathfinding Algorithm
+        //
+        //  Published by Peter Hart, Nils Nilsson, and Bertram Raphael in 1968
+        // #####################################################################
+
+
+
         public AStarAlgorithm() { }
 
         Node CurrentNode = null;

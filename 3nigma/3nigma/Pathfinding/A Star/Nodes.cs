@@ -62,15 +62,7 @@ namespace Enigma.Pathfinding.A_Star
         }
         private Node _ParentNode = null;
 
-        public void LinkTo(Node node)
-        {
-            if (node != null && node != this)
-            {
-                Open = true;
-                if (!LinkedNodes.Any(x => x == node))
-                    LinkedNodes.Add(node);
-            }
-        }
+
         public void LinkTo(IEnumerable<Node> nodes)
         {
             foreach (var node in nodes)
@@ -82,9 +74,15 @@ namespace Enigma.Pathfinding.A_Star
         {
             foreach (var node in nodes)
             {
-                LinkTo(node);
+                if (node != null && node != this)
+                {
+                    Open = true;
+                    if (!LinkedNodes.Any(x => x == node))
+                        LinkedNodes.Add(node);
+                }
             }
         }
+
         public void SetAsDestination()
         {
             _DestinationNode = this;
